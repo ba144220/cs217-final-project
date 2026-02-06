@@ -3,7 +3,6 @@ Main entry point for the experiments.
 """
 
 import lm_eval
-import json
 def main():
     """
     Main entry point for the experiments.
@@ -19,6 +18,5 @@ def main():
 
     print(metrics)
 
-    
 if __name__ == "__main__":
     main()
