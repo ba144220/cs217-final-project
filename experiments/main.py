@@ -9,9 +9,9 @@ def main():
     """
     results = lm_eval.simple_evaluate(
         model="hf",
-        model_args="pretrained=arnir0/Tiny-LLM,device=cpu",
+        model_args="pretrained=Qwen/Qwen3-1.7B,device=cuda,dtype=bfloat16",
         tasks=["hellaswag"],
-        limit=100,
+        limit=1000,
     )
     task = "hellaswag"
     metrics = results["results"][task]
