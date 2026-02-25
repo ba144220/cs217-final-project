@@ -25,8 +25,6 @@ class TopkLinear(nn.Linear):
         top_k_ratio: The ratio of the top-k values to keep.
         prune_input: Whether to prune the input.
     """
-    print(
-        f"Initializing TopkLinear with top_k_ratio={top_k_ratio} and prune_input={prune_input}")
     super().__init__(*args, **kwargs)
     self.top_k_ratio = top_k_ratio
     self.prune_input = prune_input
@@ -132,7 +130,6 @@ class NMPruneLinear(nn.Linear):
       prune_input: bool = False,
       **kwargs,
   ):
-    print(f"Initializing NMPruneLinear with n={n}, m={m}, prune_input={prune_input}")
     super().__init__(*args, **kwargs)
     self.n = n
     self.m = m
