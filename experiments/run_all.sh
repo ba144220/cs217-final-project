@@ -11,17 +11,26 @@ cd "$SCRIPT_DIR"
 # (n, m) configs to test
 # configs="2,4 4,8 2,8"
 # configs="2,16 4,16 8,16"
-configs="4,32 8,32 16,32"
+# configs="4,32 8,32 16,32"
 
-for cfg in $configs; do
-  n="${cfg%,*}"
-  m="${cfg#*,}"
+# for cfg in $configs; do
+#   n="${cfg%,*}"
+#   m="${cfg#*,}"
 
-  echo "=== Running n=$n m=$m weight pruning ==="
-  python main.py --n "$n" --m "$m"
+#   echo "=== Running n=$n m=$m weight pruning ==="
+#   python main.py --n "$n" --m "$m"
 
-  echo "=== Running n=$n m=$m input pruning ==="
-  python main.py --n "$n" --m "$m" --prune-input
+#   echo "=== Running n=$n m=$m input pruning ==="
+#   python main.py --n "$n" --m "$m" --prune-input
+# done
+
+# Top-k experiments
+for k in 2 4 8; do
+  echo "=== Running topk k=$k weight pruning ==="
+  python main.py --k "$k"
+
+  echo "=== Running topk k=$k input pruning ==="
+  python main.py --k "$k" --prune-input
 done
 
 echo "=== All runs complete ==="
